@@ -1,0 +1,35 @@
+<div class="container-fluid">
+
+    <div class="container">
+
+        <div class="row mt-4">
+            <label for="title" class="form-label">Book Title:</label>
+            <input placeholder="Enter Book Title" [(ngModel)]="bookTitle" class="form-control">
+        </div>
+
+        <div class="row mt-4">
+            <label for="title" class="form-label">Book Author:</label>
+            <input placeholder="Enter Book Author" [(ngModel)]="bookAuthor" class="form-control">
+        </div>
+
+        <div class="vstack gap-2 col-md-5 mx-auto mt-4">
+            <button (click)="addBook()" type="button" class="btn btn-secondary">Add Book</button>
+        </div>
+
+        <h2 class="text-secondary mt-3">My Favorite Books</h2>
+        <div class="hstack gap-3 row">
+            <ul class="list-group">
+                <li *ngFor="let book of bookList; index as i"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                    {{book.author}}
+                    <span class="vr"></span>
+                    {{book.title}}
+                    <span class="vr"></span>
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteBook(i)">Delete</button>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
